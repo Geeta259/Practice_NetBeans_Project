@@ -1,0 +1,2 @@
+Ajax is not a Programming Language.
+Ajax is used for get asynchronously data from server.

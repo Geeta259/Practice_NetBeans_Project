@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Records</title>
+    
+    <style>
+        ul li{
+            margin-top:20px;
+                
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Book Records</h1>
+    <ul style="list-style: none;" id="bookList"></ul>
+
+    <script>
+        //create an object of xmlhttprequest to fetch data from server
+        var xhttp = new XMLHttpRequest();
+          xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+        
+        //check ready state change
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                //if code successful response
+                
+                //retrive xml document
+                var xmlDoc = this.responseXML;
+                if (xmlDoc !== null) {
+                    
+                    //get array of book element
+                    var books = xmlDoc.getElementsByTagName("book");
+                    //get ul tag of html    
+                    var bookList = document.getElementById("bookList");
+                    for (var i = 0; i < books.length; i++) {
+                        
+                        //retrieve first title element if multiple title element present 
+                        //access first element value of title
+                        
+                        var title = books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                        var author = books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue;
+                        var genre = books[i].getElementsByTagName("genre")[0].childNodes[0].nodeValue;
+                        var year = books[i].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+                        var publisher = books[i].getElementsByTagName("publisher")[0].childNodes[0].nodeValue;
+
+                        var listItem = document.createElement("li");
+                        listItem.innerHTML = "<strong>Title:</strong> " + title + "<br>" +
+                                             "<strong>Author:</strong> " + author + "<br>" +
+                                             "<strong>Genre:</strong> " + genre + "<br>" +
+                                             "<strong>Year:</strong> " + year + "<br>" +
+                                             "<strong>Publisher:</strong> " + publisher;
+
+                        bookList.appendChild(listItem);
+                    }
+                } else {
+                    console.error("XML document is null.");
+                }
+            } else if (this.readyState === 4) {
+                console.error("Failed to load XML file: " + this.status);
+            }
+        };
+    </script>
+</body>
+</html>

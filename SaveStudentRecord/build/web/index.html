@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            .container{
+                width:40%;
+                border:1px solid black;
+                margin:auto;
+                padding: 20px;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+            
+            #myform table tr td input{
+                font-size: 18px;
+               
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Student Form</h1>
+            <form id="myform" action="process.jsp" method="post">
+                <table>
+                    <tr>
+                        <td>Enter First Name : </td>
+                        <td><input type="text" name="first_name" placeholder="enter first name ..."/></td>
+                    </tr>
+                    <tr>
+                        <td>Enter Last Name : </td>
+                        <td><input type="text" name="second_name" placeholder="enter second name..."/></td>
+                    </tr>
+                     <tr>
+                        <td>Enter your E-mail : </td>
+                        <td><input type="email" name="user_email" placeholder="enter email here..."/></td>
+                    </tr>
+                    <tr>
+                        <td>Select Gender : </td>
+                        <td><input type="radio" name="user_gender" value="male">Male&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="user_gender" value="female">Female&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                    
+                     <tr>
+                        <td>Enter City : </td>
+                        <td><input type="text" name="city_name" placeholder="enter city..."/></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Select Course : </td>
+                        <td>
+                            <select name="user_course">
+                                <option value="mca">MCA</option>
+                                 <option value="phd">PHD</option>
+                                  <option value="mechanical">Mechanical</option>
+                                   <option value="electrical">Electrical</option>
+                                    <option value="it">IT</option>
+                            </select>
+                        </td>
+  
+                    </tr>
+                    
+                     <tr>
+                        <td>Select Semester: </td>
+                        <td>
+                            <select name="semester">
+                                <option value="|">|</option>
+                                 <option value="||">||</option>
+                                  <option value="|||">|||</option>
+                                   <option value="|V">|V</option>
+                                    <option value="V">V</option>
+                                     <option value="VI">V|</option>
+                            </select>
+                        </td>
+  
+                    </tr>
+                   
+                     
+                     <tr>
+                         <td></td>
+                         <td><button type="submit">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         <button type="reset">Reset</button> </td>
+                     </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
